@@ -24,3 +24,6 @@ yarn-error.log*
 *.sw*
 .idea
 .fleet
+
+# docker build
+/docker/dist/
