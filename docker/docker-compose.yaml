@@ -7,7 +7,7 @@ services:
     container_name: pig-ui
     image: pig-ui
     networks:
-      - pig367_default
+      - pig_default
     external_links:
       - pig-gateway
     ports:
@@ -15,5 +15,5 @@ services:
 
 # 加入到后端网络， 默认为 pig_default  | docker network ls   查看
 networks:
-  pig367_default:
+  pig_default:
     external: true
