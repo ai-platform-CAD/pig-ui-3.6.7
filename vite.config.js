@@ -18,7 +18,7 @@ export default defineConfig(({mode, command}) => {
             port: 8080,
             proxy: {
                 '/api': {
-                    target: 'http://pig-gateway:9999',
+                    target: 'http://10.112.195.22:9999',
                     changeOrigin: true,
                     rewrite: (path) => path.replace(/^\/api/, '')
                 }
