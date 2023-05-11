@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import {addObj, delObj, fetchList, putObj} from '@/api/operator'
+import {addObj, delObj, fetchList, putObj} from '@/api/operator/manage'
 import {tableOption} from '@/const/crud/operator/manage'
 import {mapGetters} from 'vuex'
 
