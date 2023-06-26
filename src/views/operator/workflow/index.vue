@@ -21,12 +21,12 @@
 </template>
 
 <script>
-import {addObj, delObj, fetchList, putObj} from '@/api/operator/manage'
-import {tableOption} from '@/const/crud/operator/manage'
+import {addObj, delObj, fetchList, putObj} from '@/api/operator/workflow'
+import {tableOption} from '@/const/crud/operator/workflow'
 import {mapGetters} from 'vuex'
 
 export default {
-  name: 'operator',
+  name: 'workflow',
   data() {
     return {
       searchForm: {},
@@ -44,9 +44,9 @@ export default {
     ...mapGetters(['permissions']),
     permissionList() {
       return {
-        addBtn: this.validData(this.permissions.operator_manage_add, false),
-        delBtn: this.validData(this.permissions.operator_manage_del, false),
-        editBtn: this.validData(this.permissions.operator_manage_edit, false)
+        addBtn: this.validData(this.permissions.workflow_manage_add, false),
+        delBtn: this.validData(this.permissions.workflow_manage_del, false),
+        editBtn: this.validData(this.permissions.workflow_manage_edit, false)
       };
     }
   },
@@ -65,12 +65,12 @@ export default {
       })
     },
     rowDel: function (row, index) {
-      this.$confirm('是否确认删除ID为' + row.operatorId, '提示', {
+      this.$confirm('是否确认删除ID为' + row.workflowId, '提示', {
         confirmButtonText: '确定',
         cancelButtonText: '取消',
         type: 'warning'
       }).then(function () {
-        return delObj(row.operatorId)
+        return delObj(row.workflowId)
       }).then(data => {
         this.$message.success('删除成功')
         this.getList(this.page)

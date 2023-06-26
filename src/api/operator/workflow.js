@@ -1,6 +1,6 @@
 import request from '@/router/axios'
 
-let baseurl = '/operator/manage';
+let baseurl = '/operator/workflow';
 
 export function fetchList(query) {
     return request({
