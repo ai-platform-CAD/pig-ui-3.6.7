@@ -3,8 +3,8 @@
 
     <div class="content">
       <!--      左侧工具栏-->
-      <div class="monitorTop">
-        <el-tabs>
+
+        <el-tabs style="width: 300px">
           <el-space wrap>
             <el-card v-for="i in 1" :key="i" class="box-card" style="width: 290px">
               <div class="text item" style="line-height: 200%">
@@ -30,7 +30,6 @@
             <div id="stencil" class="sider"></div>
           </el-space>
         </el-tabs>
-        </div>
       <!--      流程图工具栏-->
       <div class="panel">
         <div class="toolbar">
