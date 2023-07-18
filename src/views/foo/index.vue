@@ -19,29 +19,29 @@
         </div>
       </template>
 
-      <el-descriptions title="Customized style list" :column="1" border>
+      <el-descriptions title="设备详细信息" :column="1" direction="horizontal" border>
         <el-descriptions-item
-            label="Username"
-            label-align="right"
+            label="实例状态"
+            label-align="left"
             align="center"
             label-class-name="my-label"
             class-name="my-content"
-            width="150px"
-        >kooriookami</el-descriptions-item
+            width="5px"
+        >working</el-descriptions-item
         >
-        <el-descriptions-item label="Telephone" label-align="right" align="center"
-        >18100000000</el-descriptions-item
+        <el-descriptions-item label="深度学习框架" label-align="left" align="center"
+        >eslinst</el-descriptions-item
         >
-        <el-descriptions-item label="Place" label-align="right" align="center"
-        >Suzhou</el-descriptions-item
+        <el-descriptions-item label="关联数据集" label-align="left" align="center"
+        >L1</el-descriptions-item
         >
-        <el-descriptions-item label="Remarks" label-align="right" align="center">
-          <el-tag size="small">School</el-tag>
+        <el-descriptions-item label="实例描述" label-align="left" align="center">
+          <el-tag size="small">test</el-tag>
         </el-descriptions-item>
-        <el-descriptions-item label="Address" label-align="right" align="center"
-        >No.1188, Wuzhong Avenue, Wuzhong District, Suzhou, Jiangsu
-          Province</el-descriptions-item
-        >
+        <el-descriptions-item label="编码资源" label-align="left" align="center">123Province</el-descriptions-item>
+        <el-descriptions-item label="训练资源" label-align="left" align="center">1</el-descriptions-item>
+        <el-descriptions-item label="创建时间" label-align="left" align="center">{{currentTime}}</el-descriptions-item>
+        <el-descriptions-item label="更新时间" label-align="left" align="center">{{currentTime}}</el-descriptions-item>
       </el-descriptions>
     </el-card>
 
@@ -87,13 +87,18 @@ export default defineComponent({
       console.log('页面跳转')
     }
 
+// 创建一个展示时间
+    const currentTime = ref<string>('');
+    // Update the current time every second
+    const date = new Date();
+    currentTime.value = date.toLocaleTimeString();
 
     return{
       value,
       options,
       handleChange,
       pageSwap,
-
+      currentTime,
     }
   }
 
