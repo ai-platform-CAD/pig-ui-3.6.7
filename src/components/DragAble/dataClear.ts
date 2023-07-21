@@ -2,49 +2,6 @@
 
 import FlowGraph from "../Graph";
 
-//
-// interface nodes{
-//     name:string,
-//     container:{
-//         image:any,
-//         command:any,
-//         args:any,
-//     },
-//     input:{
-//         artifacts:[{
-//             name:string,
-//             path:string,
-//             s3:{
-//                 endpoint:any,
-//                 bucket:any,
-//                 key:any,
-//             }
-//         }
-//         ]
-//     },
-//     output:{
-//         artifacts:[{
-//             name:string,
-//             path:string,
-//             archive:{
-//                 none:any,
-//             }
-//             s3:{
-//                 endpoint:any,
-//                 bucket:any,
-//                 key:any,
-//             }
-//         }
-//         ]
-//     }
-// }
-//
-// interface edges{
-//     source:any,
-//     target:any,
-// }
-
-
 export function clearData(){
     const {graph} = FlowGraph;
 
