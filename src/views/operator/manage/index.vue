@@ -1,114 +1,150 @@
 <template>
-  <div class="execution">
+  <div class="mod-config">
     <basic-container>
-      <avue-crud ref="crud"
-                 v-model:page="page"
-                 :data="tableData"
-                 :option="tableOption"
-                 :permission="permissionList"
-                 :table-loading="tableLoading"
-                 @on-load="getList"
-                 @search-change="searchChange"
-                 @refresh-change="refreshChange"
-                 @size-change="sizeChange"
-                 @current-change="currentChange"
-                 @row-update="handleUpdate"
-                 @row-save="handleSave"
-                 @row-del="rowDel">
-      </avue-crud>
+      <el-form :inline="true" :model="dataForm" @keyup.enter.native="getDataList()">
+        <el-form-item>
+          <!--修改权限-->
+          <el-button v-if="permissions.operator_manage_add" icon="el-icon-plus" type="primary"
+                     @click="addOrUpdateHandle()">新增
+          </el-button>
+        </el-form-item>
+      </el-form>
+
+      <div class="avue-crud">
+        <el-table
+            v-loading="dataListLoading"
+            :data="dataList"
+            border>
+          <el-table-column
+              align="center"
+              header-align="center"
+              label="序号"
+              prop="index">
+          </el-table-column>
+          <el-table-column
+              align="center"
+              header-align="center"
+              label="算子名称"
+              prop="operatorName">
+          </el-table-column>
+          <el-table-column
+              align="center"
+              header-align="center"
+              label="JSON内容"
+              prop="jsonContent">
+          </el-table-column>
+          <el-table-column
+              align="center"
+              header-align="center"
+              label="创建时间"
+              prop="createTime">
+          </el-table-column>
+          <el-table-column
+              align="center"
+              header-align="center"
+              label="操作">
+            <template slot-scope="scope">
+              <el-button v-if="permissions.operator_manage_edit" icon="el-icon-edit" size="small" type="text"
+                         @click="addOrUpdateHandle(scope.row.secretId)">修改
+              </el-button>
+              <el-button v-if="permissions.operator_manage_del" icon="el-icon-delete" size="small" type="text"
+                         @click="deleteHandle(scope.row.secretId)">删除
+              </el-button>
+            </template>
+          </el-table-column>
+        </el-table>
+      </div>
+
+      <div class="avue-crud__pagination">
+        <el-pagination
+            :current-page="pageIndex"
+            :page-size="pageSize"
+            :page-sizes="[10, 20, 50, 100]"
+            :total="totalPage"
+            background
+            layout="total, sizes, prev, pager, next, jumper"
+            @size-change="sizeChangeHandle"
+            @current-change="currentChangeHandle">
+        </el-pagination>
+      </div>
+      <!-- 弹窗, 新增 / 修改 -->
+      <table-form v-if="addOrUpdateVisible" ref="addOrUpdate" @refreshDataList="getDataList"></table-form>
     </basic-container>
   </div>
 </template>
 
 <script>
-import {addObj, delObj, fetchList, putObj} from '@/api/operator/manage'
-import {tableOption} from '@/const/crud/operator/manage'
+import {delObj, fetchList} from '@/api/operator_manage'
+import TableForm from './operator-form.vue'
 import {mapGetters} from 'vuex'
 
 export default {
-  name: 'operator',
   data() {
     return {
-      searchForm: {},
-      tableData: [],
-      page: {
-        total: 0, // 总页数
-        currentPage: 1, // 当前页数
-        pageSize: 20 // 每页显示多少条
+      dataForm: {
+        key: ''
       },
-      tableLoading: false,
-      tableOption: tableOption
+      dataList: [],
+      pageIndex: 1,
+      pageSize: 10,
+      totalPage: 0,
+      dataListLoading: false,
+      addOrUpdateVisible: false
     }
+  },
+  components: {
+    TableForm
+  },
+  created() {
+    this.getDataList()
   },
   computed: {
-    ...mapGetters(['permissions']),
-    permissionList() {
-      return {
-        addBtn: this.validData(this.permissions.operator_manage_add, false),
-        delBtn: this.validData(this.permissions.operator_manage_del, false),
-        editBtn: this.validData(this.permissions.operator_manage_edit, false)
-      };
-    }
+    ...mapGetters(['permissions'])
   },
   methods: {
-    getList(page, params) {
-      this.tableLoading = true
+    // 获取数据列表
+    getDataList() {
+      this.dataListLoading = true
       fetchList(Object.assign({
-        current: page.currentPage,
-        size: page.pageSize
-      }, params, this.searchForm)).then(response => {
-        this.tableData = response.data.data.records
-        this.page.total = response.data.data.total
-        this.tableLoading = false
-      }).catch(() => {
-        this.tableLoading = false
+        current: this.pageIndex,
+        size: this.pageSize
+      })).then(response => {
+        this.dataList = response.data.data.records
+        this.totalPage = response.data.data.total
+      })
+      this.dataListLoading = false
+    },
+    // 每页数
+    sizeChangeHandle(val) {
+      this.pageSize = val
+      this.pageIndex = 1
+      this.getDataList()
+    },
+    // 当前页
+    currentChangeHandle(val) {
+      this.pageIndex = val
+      this.getDataList()
+    },
+    // 新增 / 修改
+    addOrUpdateHandle(id) {
+      this.addOrUpdateVisible = true
+      this.$nextTick(() => {
+        this.$refs.addOrUpdate.init(id)
       })
     },
-    rowDel: function (row, index) {
-      this.$confirm('是否确认删除ID为' + row.operatorId, '提示', {
+    // 删除
+    deleteHandle(id) {
+      this.$confirm('是否确认删除ID为' + id, '提示', {
         confirmButtonText: '确定',
         cancelButtonText: '取消',
         type: 'warning'
       }).then(function () {
-        return delObj(row.operatorId)
+        return delObj(id)
       }).then(data => {
         this.$message.success('删除成功')
-        this.getList(this.page)
-      }).catch(cancelorerror => {
+        this.getDataList()
+      }).catch(() => {
       })
-    },
-    handleUpdate: function (row, index, done, loading) {
-      putObj(row).then(data => {
-        this.$message.success('修改成功')
-        done()
-        this.getList(this.page)
-      }).catch(() => {
-        loading();
-      });
-    },
-    handleSave: function (row, done, loading) {
-      addObj(row).then(data => {
-        this.$message.success('添加成功')
-        done()
-        this.getList(this.page)
-      }).catch(() => {
-        loading();
-      });
-    },
-    sizeChange(pageSize) {
-      this.page.pageSize = pageSize
-    },
-    currentChange(current) {
-      this.page.currentPage = current
-    },
-    searchChange(form, done) {
-      this.searchForm = form
-      this.page.currentPage = 1
-      this.getList(this.page, form)
-      done()
-    },
-    refreshChange() {
-      this.getList(this.page)
     }
   }
 }
