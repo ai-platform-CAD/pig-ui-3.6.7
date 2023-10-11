@@ -2,18 +2,6 @@
 # yarn lockfile v1
 
 
-"@antv/x6@^1.34.5":
-  "integrity" "sha512-gYFxh9Sd1UXPO0aO9LHclASacT6HKkG7AP9XQqRuuCcJYWQiZVRmTN1mYQf3lTZDdybdI6IisZp6zFoGjmFxig=="
-  "resolved" "https://registry.npmjs.org/@antv/x6/-/x6-1.34.13.tgz"
-  "version" "1.34.13"
-  dependencies:
-    "csstype" "^3.0.3"
-    "jquery" "^3.5.1"
-    "jquery-mousewheel" "^3.1.13"
-    "lodash-es" "^4.17.15"
-    "mousetrap" "^1.6.5"
-    "utility-types" "^3.10.0"
-
 "@babel/parser@^7.16.4":
   "integrity" "sha512-gFDLKMfpiXCsjt4za2JA9oTMn70CeseCehb11kRZgvd7+F67Hih3OHOK24cRrWECJ/ljfPGac6ygXAs/C8kIvw=="
   "resolved" "https://registry.npmjs.org/@babel/parser/-/parser-7.20.13.tgz"
@@ -384,11 +372,6 @@
   "resolved" "https://registry.npmjs.org/csstype/-/csstype-2.6.21.tgz"
   "version" "2.6.21"
 
-"csstype@^3.0.3":
-  "integrity" "sha512-I7K1Uu0MBPzaFKg4nI5Q7Vs2t+3gWWW648spaF+Rg7pI9ds18Ugn+lvg4SHczUdKlHI5LWBXyqfS8+DufyBsgQ=="
-  "resolved" "https://registry.npmjs.org/csstype/-/csstype-3.1.2.tgz"
-  "version" "3.1.2"
-
 "dayjs@^1.10.4", "dayjs@^1.11.3":
   "integrity" "sha512-+Yw9U6YO5TQohxLcIkrXBeY73WP3ejHWVvx8XCk3gxvQDCTEmS48ZrSZCKciI7Bhl/uCMyxYtE9UqRILmFphkQ=="
   "resolved" "https://registry.npmjs.org/dayjs/-/dayjs-1.11.7.tgz"
@@ -456,9 +439,9 @@
   dependencies:
     "prr" "~1.0.1"
 
-"esbuild-windows-64@0.15.18":
-  "integrity" "sha512-qinug1iTTaIIrCorAUjR0fcBk24fjzEedFYhhispP8Oc7SFvs+XeW3YpAKiKp8dRpizl4YYAhxMjlftAMJiaUw=="
-  "resolved" "https://registry.npmjs.org/esbuild-windows-64/-/esbuild-windows-64-0.15.18.tgz"
+"esbuild-linux-64@0.15.18":
+  "integrity" "sha512-hNSeP97IviD7oxLKFuii5sDPJ+QHeiFTFLoLm7NZQligur8poNOWGIgpQ7Qf8Balb69hptMZzyOBIPtY09GZYw=="
+  "resolved" "https://registry.npmjs.org/esbuild-linux-64/-/esbuild-linux-64-0.15.18.tgz"
   "version" "0.15.18"
 
 "esbuild@^0.15.9":
@@ -673,16 +656,6 @@
   "resolved" "https://registry.npmjs.org/is-what/-/is-what-3.14.1.tgz"
   "version" "3.14.1"
 
-"jquery-mousewheel@^3.1.13":
-  "integrity" "sha512-GXhSjfOPyDemM005YCEHvzrEALhKDIswtxSHSR2e4K/suHVJKJxxRCGz3skPjNxjJjQa9AVSGGlYjv1M3VLIPg=="
-  "resolved" "https://registry.npmjs.org/jquery-mousewheel/-/jquery-mousewheel-3.1.13.tgz"
-  "version" "3.1.13"
-
-"jquery@^3.5.1":
-  "integrity" "sha512-umpJ0/k8X0MvD1ds0P9SfowREz2LenHsQaxSohMZ5OMNEU2r0tf8pdeEFTHMFxWVxKNyU9rTtK3CWzUCTKJUeQ=="
-  "resolved" "https://registry.npmjs.org/jquery/-/jquery-3.7.0.tgz"
-  "version" "3.7.0"
-
 "js-cookie@^3.0.1":
   "integrity" "sha512-+0rgsUXZu4ncpPxRL+lNEptWMOWl9etvPHc/koSRp6MPwpRYAhmk0dUG00J4bxVV3r9uUzfo24wW0knS07SKSw=="
   "resolved" "https://registry.npmjs.org/js-cookie/-/js-cookie-3.0.1.tgz"
@@ -714,7 +687,7 @@
     "needle" "^3.1.0"
     "source-map" "~0.6.0"
 
-"lodash-es@*", "lodash-es@^4.17.15", "lodash-es@^4.17.21":
+"lodash-es@*", "lodash-es@^4.17.21":
   "integrity" "sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw=="
   "resolved" "https://registry.npmjs.org/lodash-es/-/lodash-es-4.17.21.tgz"
   "version" "4.17.21"
@@ -766,20 +739,15 @@
   "resolved" "https://registry.npmjs.org/monaco-editor/-/monaco-editor-0.32.1.tgz"
   "version" "0.32.1"
 
-"mousetrap@^1.6.5":
-  "integrity" "sha512-QNo4kEepaIBwiT8CDhP98umTetp+JNfQYBWvC1pc6/OAibuXtRcxZ58Qz8skvEHYvURne/7R8T5VoOI7rDsEUA=="
-  "resolved" "https://registry.npmjs.org/mousetrap/-/mousetrap-1.6.5.tgz"
-  "version" "1.6.5"
-
 "ms@^2.1.1", "ms@2.1.2":
   "integrity" "sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w=="
   "resolved" "https://registry.npmjs.org/ms/-/ms-2.1.2.tgz"
   "version" "2.1.2"
 
-"nanoid@^3.3.4":
-  "integrity" "sha512-MqBkQh/OHTS2egovRtLk45wEyNXwF+cokD+1YPf9u5VfJiRdAiRwB2froX5Co9Rh20xs4siNPm8naNotSD6RBw=="
-  "resolved" "https://registry.npmjs.org/nanoid/-/nanoid-3.3.4.tgz"
-  "version" "3.3.4"
+"nanoid@^3.3.6":
+  "integrity" "sha512-BGcqMMJuToF7i1rt+2PWSNVnWIkGCU78jBG3RxO/bZlnZPK2Cmi2QaffxGO/2RvWi9sL+FAiRiXMgsyxQ1DIDA=="
+  "resolved" "https://registry.npmjs.org/nanoid/-/nanoid-3.3.6.tgz"
+  "version" "3.3.6"
 
 "needle@^3.1.0":
   "integrity" "sha512-oUvzXnyLiVyVGoianLijF9O/RecZUf7TkBfimjGrLM4eQhXyeJwM6GeAWccwfQ9aa4gMCZKqhAOuLaMIcQxajQ=="
@@ -859,11 +827,11 @@
   "version" "4.0.1"
 
 "postcss@^8.1.10", "postcss@^8.4.18":
-  "integrity" "sha512-tP7u/Sn/dVxK2NnruI4H9BG+x+Wxz6oeZ1cJ8P6G/PZY0IKk4k/63TDsQf2kQq3+qoJeLm2kIBUNlZe3zgb4Zg=="
-  "resolved" "https://registry.npmjs.org/postcss/-/postcss-8.4.21.tgz"
-  "version" "8.4.21"
+  "integrity" "sha512-PS08Iboia9mts/2ygV3eLpY5ghnUcfLV/EXTOW1E2qYxJKGGBUtNjN76FYHnMs36RmARn41bC0AZmn+rR0OVpQ=="
+  "resolved" "https://registry.npmjs.org/postcss/-/postcss-8.4.31.tgz"
+  "version" "8.4.31"
   dependencies:
-    "nanoid" "^3.3.4"
+    "nanoid" "^3.3.6"
     "picocolors" "^1.0.0"
     "source-map-js" "^1.0.2"
 
@@ -952,9 +920,9 @@
   "version" "1.2.4"
 
 "semver@^5.6.0":
-  "integrity" "sha512-sauaDf/PZdVgrLTNYHRtpXa1iRiKcaebiKQ1BJdpQlWH2lCvexQdX55snPFyK7QzpudqbCI0qXFfOasHdyNDGQ=="
-  "resolved" "https://registry.npmjs.org/semver/-/semver-5.7.1.tgz"
-  "version" "5.7.1"
+  "integrity" "sha512-cBznnQ9KjJqU67B52RMC65CMarK2600WFnbkcaiwWq3xy/5haFJlshgnpjovMVJ+Hff49d8GEn0b87C5pDQ10g=="
+  "resolved" "https://registry.npmjs.org/semver/-/semver-5.7.2.tgz"
+  "version" "5.7.2"
 
 "side-channel@^1.0.4":
   "integrity" "sha512-q5XPytqFEIKHkGdiMIrY10mvLRvnQh42/+GoBlFW3b2LXLE2xxJpZFdm94we0BaoV3RwJyGqg5wS7epxTv0Zvw=="
@@ -1014,11 +982,6 @@
   "resolved" "https://registry.npmjs.org/universalify/-/universalify-2.0.0.tgz"
   "version" "2.0.0"
 
-"utility-types@^3.10.0":
-  "integrity" "sha512-O11mqxmi7wMKCo6HKFt5AhO4BwY3VV68YU07tgxfz8zJTIxr4BpsezN49Ffwy9j3ZpwwJp4fkRwjRzq3uWE6Rg=="
-  "resolved" "https://registry.npmjs.org/utility-types/-/utility-types-3.10.0.tgz"
-  "version" "3.10.0"
-
 "vite-plugin-compression@0.5.1":
   "integrity" "sha512-5QJKBDc+gNYVqL/skgFAP81Yuzo9R+EAf19d+EtsMF/i8kFUpNi3J/H01QD3Oo8zBQn+NzoCIFkpPLynoOzaJg=="
   "resolved" "https://registry.npmjs.org/vite-plugin-compression/-/vite-plugin-compression-0.5.1.tgz"
@@ -1029,9 +992,9 @@
     "fs-extra" "^10.0.0"
 
 "vite@^3.0.0", "vite@^3.1.0", "vite@>=2.0.0":
-  "integrity" "sha512-4mVEpXpSOgrssFZAOmGIr85wPHKvaDAcXqxVxVRZhljkJOMZi1ibLibzjLHzJvcok8BMguLc7g1W6W/GqZbLdQ=="
-  "resolved" "https://registry.npmjs.org/vite/-/vite-3.2.5.tgz"
-  "version" "3.2.5"
+  "integrity" "sha512-29pdXjk49xAP0QBr0xXqu2s5jiQIXNvE/xwd0vUizYT2Hzqe4BksNNoWllFVXJf4eLZ+UlVQmXfB4lWrc+t18g=="
+  "resolved" "https://registry.npmjs.org/vite/-/vite-3.2.7.tgz"
+  "version" "3.2.7"
   dependencies:
     "esbuild" "^0.15.9"
     "postcss" "^8.4.18"
