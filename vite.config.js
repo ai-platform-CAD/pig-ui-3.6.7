@@ -1,8 +1,8 @@
-import {defineConfig, loadEnv} from 'vite'
+import { defineConfig, loadEnv } from 'vite'
 import createVitePlugins from './vite/plugins'
 
-const {resolve} = require('path')
-export default defineConfig(({mode, command}) => {
+const { resolve } = require('path')
+export default defineConfig(({ mode, command }) => {
     const env = loadEnv(mode, process.cwd())
     return {
         build: {
@@ -21,7 +21,7 @@ export default defineConfig(({mode, command}) => {
                     target: 'http://pig-gateway:9999',
                     changeOrigin: true,
                     rewrite: (path) => path.replace(/^\/api/, '')
-                    
+
                 }
             }
         },

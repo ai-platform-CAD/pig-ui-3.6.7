@@ -7,6 +7,7 @@
     "build:docker": "vite build --outDir=./docker/dist/"
   },
   "dependencies": {
+    "@antv/x6": "^1.34.5",
     "@element-plus/icons-vue": "^0.2.4",
     "@smallwei/avue": "3.2.8",
     "animate.css": "^4.1.1",
@@ -32,7 +33,6 @@
     "@vitejs/plugin-vue": "^3.1.0",
     "@vue/compiler-sfc": "^3.2.39",
     "sass": "^1.54.9",
-    "vite": "^3.1.0",
     "vite-plugin-compression": "0.5.1"
   }
 }

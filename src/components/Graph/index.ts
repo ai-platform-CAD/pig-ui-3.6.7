@@ -1,29 +1,29 @@
-import {Graph, Addon, FunctionExt, Shape} from '@antv/x6';
+import { Graph, Addon, FunctionExt, Shape } from '@antv/x6';
 import './shape';
 import graphData from "./data";
 
 export default class FlowGraph {
-    public static graph:Graph;
-    private static stencil:Addon.Stencil;
+    public static graph: Graph;
+    private static stencil: Addon.Stencil;
 
-    public static init(){
+    public static init() {
         this.graph = new Graph({
-            container:document.getElementById('container')!,
-            width:1000,
-            height:800,
-            grid:{
-                size:10,
+            container: document.getElementById('container')!,
+            width: 1000,
+            height: 800,
+            grid: {
+                size: 10,
                 visible: true, // 渲染网格背景
-                type:'doubleMesh',
-                args:[
+                type: 'doubleMesh',
+                args: [
                     {
-                        color:'#cccccc',
-                        thickness:1,
+                        color: '#cccccc',
+                        thickness: 1,
                     },
                     {
                         color: '#5F95FF',
                         thickness: 1,
-                        factor:4,
+                        factor: 4,
                     },
                 ],
             },
@@ -49,7 +49,7 @@ export default class FlowGraph {
                 showNodeSelectionBox: true,
             },
             //连接点 ConnectionPoint 与锚点 Anchor 共同确定了边的起点或终点
-            connecting:{
+            connecting: {
                 anchor: 'center',
                 connectionPoint: 'anchor',
                 allowBlank: false,
@@ -86,7 +86,7 @@ export default class FlowGraph {
                     return true;
                 },
             },
-            highlighting:{
+            highlighting: {
                 magnetAvailable: {
                     name: 'stroke',
                     args: {
@@ -178,30 +178,30 @@ export default class FlowGraph {
                 text: {
                     text: 'mnist',
                 },
-                'edit-container':{
-                    "containerImage":'registry.cn-hangzhou.aliyuncs.com/hrtmiv2xok4kiw/k8s:cpu',
-                    "commandName":'python',
-                    "argsName":'main.py',
+                'edit-container': {
+                    "containerImage": 'registry.cn-hangzhou.aliyuncs.com/hrtmiv2xok4kiw/k8s:cpu',
+                    "commandName": 'python',
+                    "argsName": 'main.py',
                 },
-                'edit-input':{
-                    "name":'name1',
-                    "path":'/app/data',
-                    "S3":{
-                        "endpoint":'minio.argo:9000',
-                        "bucket":'sjh-bucket1',
-                        "key":'data',
+                'edit-input': {
+                    "name": 'name1',
+                    "path": '/app/data',
+                    "S3": {
+                        "endpoint": 'minio.argo:9000',
+                        "bucket": 'sjh-bucket1',
+                        "key": 'data',
                     },
                 },
-                'edit-output':{
-                    "name":'name2',
-                    "path":'/app/data/output.pt',
-                    "archive":{
-                        "none":{}
+                'edit-output': {
+                    "name": 'name2',
+                    "path": '/app/data/output.pt',
+                    "archive": {
+                        "none": {}
                     },
-                    "S3":{
-                        "endpoint":'minio.argo:9000',
-                        "bucket":'sjh-bucket2',
-                        "key":'output.pt',
+                    "S3": {
+                        "endpoint": 'minio.argo:9000',
+                        "bucket": 'sjh-bucket2',
+                        "key": 'output.pt',
                     },
                 },
             },
@@ -212,30 +212,30 @@ export default class FlowGraph {
                 text: {
                     "text": 'list',
                 },
-                'edit-container':{
-                    "containerImage":'alpine:latest',
-                    "commandName":'ls',
-                    "argsName":'/data',
+                'edit-container': {
+                    "containerImage": 'alpine:latest',
+                    "commandName": 'ls',
+                    "argsName": '/data',
                 },
-                'edit-input':{
-                    "name":'name2',
-                    "path":'/data',
-                    "S3":{
-                        "endpoint":'',
-                        "bucket":'',
-                        "key":'',
+                'edit-input': {
+                    "name": 'name2',
+                    "path": '/data',
+                    "S3": {
+                        "endpoint": '',
+                        "bucket": '',
+                        "key": '',
                     },
                 },
-                'edit-output':{
-                    "name":'',
-                    "path":'',
-                    "archive":{
-                        "none":{}
+                'edit-output': {
+                    "name": '',
+                    "path": '',
+                    "archive": {
+                        "none": {}
                     },
-                    "S3":{
-                        "endpoint":'',
-                        "bucket":'',
-                        "key":'',
+                    "S3": {
+                        "endpoint": '',
+                        "bucket": '',
+                        "key": '',
                     },
                 },
             },
@@ -255,30 +255,30 @@ export default class FlowGraph {
                     text: '判断节点',
                     transform: 'rotate(-45deg)',
                 },
-                'edit-container':{
-                    containerImage:'empty1',
-                    commandName:'empty',
-                    argsName:'empty3',
+                'edit-container': {
+                    containerImage: 'empty1',
+                    commandName: 'empty',
+                    argsName: 'empty3',
                 },
-                'edit-input':{
-                    name:'inputTest1',
-                    path:'inputTest2',
-                    S3:{
-                        endpoint:'inTest1',
-                        bucket:'inTest2',
-                        key:'inTest3',
+                'edit-input': {
+                    name: 'inputTest1',
+                    path: 'inputTest2',
+                    S3: {
+                        endpoint: 'inTest1',
+                        bucket: 'inTest2',
+                        key: 'inTest3',
                     },
                 },
-                'edit-output':{
-                    name:'outputTest1',
-                    path:'outputTest2',
-                    archive:{
-                        none:{}
+                'edit-output': {
+                    name: 'outputTest1',
+                    path: 'outputTest2',
+                    archive: {
+                        none: {}
                     },
-                    S3:{
-                        endpoint:'outTest1',
-                        bucket:'outTest2',
-                        key:'outTest3',
+                    S3: {
+                        endpoint: 'outTest1',
+                        bucket: 'outTest2',
+                        key: 'outTest3',
                     },
                 },
             },
@@ -331,30 +331,30 @@ export default class FlowGraph {
                 text: {
                     text: '节点',
                 },
-                'edit-container':{
-                    containerImage:'empty1',
-                    commandName:'empty',
-                    argsName:'empty3',
+                'edit-container': {
+                    containerImage: 'empty1',
+                    commandName: 'empty',
+                    argsName: 'empty3',
                 },
-                'edit-input':{
-                    name:'inputTest1',
-                    path:'inputTest2',
-                    S3:{
-                        endpoint:'inTest1',
-                        bucket:'inTest2',
-                        key:'inTest3',
+                'edit-input': {
+                    name: 'inputTest1',
+                    path: 'inputTest2',
+                    S3: {
+                        endpoint: 'inTest1',
+                        bucket: 'inTest2',
+                        key: 'inTest3',
                     },
                 },
-                'edit-output':{
-                    name:'outputTest1',
-                    path:'outputTest2',
-                    archive:{
-                        none:{}
+                'edit-output': {
+                    name: 'outputTest1',
+                    path: 'outputTest2',
+                    archive: {
+                        none: {}
                     },
-                    S3:{
-                        endpoint:'outTest1',
-                        bucket:'outTest2',
-                        key:'outTest3',
+                    S3: {
+                        endpoint: 'outTest1',
+                        bucket: 'outTest2',
+                        key: 'outTest3',
                     },
                 },
             },
